@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+  <!-- Bootstrap icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+  <title>Cours MySQL - Requêtte</title>
+  
+</head>
+<body class="bg-warning">
+    <header class="container mb-4 bg-white">
+        <div class="row">
+            <div class="col-8">
+                <h1 class="display-4 text-center">Cours SQL - Requêtes - # 1</h1>
+                <p class="lead">...</p>
+            </div>
+        </div>
+        <!-- fin row -->
+    </header>
+
+    <section class="container mb-5 bg-light">
+        <div class="row">
+          <h2>Base d'une BDD</h2>
+          <ul>
+            <li>Créer une BDD : <code>CREATE nomdelabdd CHARACTER SET 'utf8';</code></li>
+            <li>Voir les BDD dans le serveur : <code>SHOW DATABASES;</code></li>
+            <li>Utiliser une BDD : <code>USE nomdelabdd;</code></li>
+            <li>Supprimer une BDD : <code>DROP DATABASE IF EXISTS nomdelabdd;</code></li>
+          </ul>
+        </div>
+        <!-- fin row -->
+
+        <div class="row">
+          <h2>2- Création d'une table</h2>
+          <p>Création de la table employes dans la BDD entreprise</p>
+
+          <code>
+            CREATE TABLE IF NOT EXISTS employes (
+              id_employes int(3) NOT NULL AUTO_INCREMENT,
+              prenom varchar(20) DEFAULT NULL,
+              nom varchar(20) DEFAULT NULL, 
+              sexe enum ('f','m') NOT NULL,
+              service varchar(30) DEFAULT NULL,
+              date_embauche date DEFAULT NULL,
+              salaire float DEFAULT NULL,
+              PRIMARY KEY (id_employes)
+            )ENGINE=InnoDB DEFAULT CHARSET=latin1 ;
+          </code>
+          <p>Nous venons d'ajouter une table "employes"; nous allons ajouter maintenant les contenus dans cette table</p>
+          <code>
+            INSERT INTO employes (id_employes, prenom, nom, sexe, service, date_embauche, salaire) VALUES 
+            (350, 'Jean-Pierre', 'Laborde', 'm', 'direction', '1999-12-09', 5000),
+            (388, 'Clement', 'Gallet', 'm', 'commercial', '2000-01-15', 2300),
+            (415, 'Thomas', 'Winter', 'm', 'commercial', '2000-05-03', 3550),
+            (417, 'Chloe', 'Dubar', 'f', 'production', '2001-09-05', 1900),
+            (491, 'Elodie', 'Fellier', 'f', 'secretariat', '2002-02-22', 1600),
+            (509, 'Fabrice', 'Grand', 'm', 'comptabilite', '2003-02-20', 1900),
+            (547, 'Melanie', 'Collier', 'f', 'commercial', '2004-09-08', 3100),
+            (592, 'Laura', 'Blanchet', 'f', 'direction', '2005-06-09', 4500),
+            (627, 'Guillaume', 'Miller', 'm', 'commercial', '2006-07-02', 1900),
+            (655, 'Celine', 'Perrin', 'f', 'commercial', '2006-09-10', 2700),
+            (699, 'Julien', 'Cottet', 'm', 'secretariat', '2007-01-18', 1390),
+            (701, 'Mathieu', 'Vignal', 'm', 'informatique', '2008-12-03', 2000),
+            (739, 'Thierry', 'Desprez', 'm', 'secretariat', '2009-11-17', 1500),
+            (780, 'Amandine', 'Thoyer', 'f', 'communication', '2010-01-23', 1500),
+            (802, 'Damien', 'Durand', 'm', 'informatique', '2010-07-05', 2250),
+            (854, 'Daniel', 'Chevel', 'm', 'informatique', '2011-09-28', 1700),
+            (876, 'Nathalie', 'Martin', 'f', 'juridique', '2012-01-12', 3200),
+            (900, 'Benoit', 'Lagarde', 'm', 'production', '2013-01-03', 2550),
+            (933, 'Emilie', 'Sennard', 'f', 'commercial', '2014-09-11', 1800),
+            (990, 'Stephanie', 'Lafaye', 'f', 'assistant', '2015-06-02', 1775);
+          </code>
+        </div>
+    </section>
+    <!-- fin container -->
+    
+    <!-- Optional JavaScript -->
+      <!-- Bootstrap Bundle with Popper -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+</body>
+</html>
