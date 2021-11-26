@@ -14,6 +14,11 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
   <title>Cours MYSQL - Accueil</title>
+  <style>
+    .chiffre-romain{
+      list-style-type: upper-roman;
+    }
+  </style>
 </head>
 <body class="bg-info">
   <header class="container bg-light">
@@ -30,7 +35,7 @@
     <div class="bg-info p-4">
       <ul class="nav justify-content-center">
         <li class="nav-item">
-          <a class="nav-link active text-dark" aria-current="page" href="#">Active</a>
+          <a class="nav-link active text-dark" aria-current="page" href="requete.html">Requête</a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-dark" href="#">Link</a>
@@ -92,7 +97,7 @@
 
     <div class="container">
       <h2>Le sommaire</h2>
-      <ul>
+      <ul class="chiffre-romain">
         <li>Introduction</li>
         <li>Modélisation d'une BDD</li>
         <li>Les tables</li>
@@ -211,6 +216,7 @@
       </div>
     </div>
     <!-- fin row -->
+    <hr>
     <div class="row">
       <h3 id="types" class="text-primary text-decoration-underline text-center">V- Les types de champ</h3>
       <div class="col-10 bg-light">
@@ -388,6 +394,27 @@
           <li>Modification<code>UDATE</code>;requête d'action, qui aura un impact sur les données</li>
           <li>suppression<code>DELETE</code>;requête d'action, qui aura un impact sur les données</li>
         </ul>
+      </div>
+      <!-- fin col -->
+    </div>
+    <!-- fin row -->
+
+    <h3 id="types" class="text-primary text-decoration-underline text-center">Illustration :</h3>
+    <div class="row">
+      <div class="col-md-4">
+        <figure>
+          <img style="width: 350px;" src="img/table.jpg" alt="table">
+        </figure>
+      </div>
+      <div class="col-md-4">
+        <figure>
+          <img style="width: 350px;" src="img/table1.jpg" alt="table">
+        </figure>
+      </div>
+      <div class="col-md-4">
+        <figure>
+          <img style="width: 500px;" src="img/table2.jpg" alt="table">
+        </figure>
       </div>
       <!-- fin col -->
     </div>
