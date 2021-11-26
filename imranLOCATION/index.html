@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location de voiture</title>
+    <!-- Boostrap Style CSS -->
+    <link rel="stylesheet" href="bootstrap-5.1.1-dist/css/bootstrap.css">
+    <!-- My Style CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Boostrap Icon link -->
+    <link rel="stylesheet" href="bootstrap-5.1.1-dist/bootstrap-icons-1.5.0/bootstrap-icons.css">
+</head>
+<body>
+    <!-- header -->
+    <header class="container-fluid position-relative">
+        <!-- nav -->
+        <nav class="navbar navbar-dark sticky-top">
+            <div class="container-fluid">
+              <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav fw-bold">
+                  <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  <a class="nav-link" href="#">Features</a>
+                  <a class="nav-link" href="#">Pricing</a>
+                  <a class="nav-link" href="#">Disabled</a>
+                </div>
+              </div>
+            </div>
+        </nav>
+        <!-- nav finish -->
+
+        <!-- text div -->
+        <div class="row text-white justify-content-center text-center mb-5">
+            <a class="text-decoration-none" href="index.html"><h1 class="fw-bold text-white">Bienvenue à Bord</h1></a>
+            <small>Location de voiture 24h/24 et 7j/7</small>
+        </div>
+        <!-- text div -->
+
+        <!-- form div -->
+        <div class="col-6 container position-absolute bottom-0 start-50 translate-middle-x id">
+            <form action="#" method="get" name="inscription" id="formInscription" class="row justify-content-center">
+                <div class="col-12 col-lg-4">
+                    <select class="form-select" id="select" aria-label="Default select example">
+                        <option selected>Select</option>
+                        <option value="1">- Voiture 1 -</option>
+                        <option value="2">- Voiture 2-</option>
+                        <option value="3">- Voiture 3-</option>
+                    </select>
+                    <label for="select" class="form-label"></label>
+                </div>
+                <div class="col-12 col-lg-3">
+                    <input type="date" class="form-control" id="date">
+                    <label for="date" class="form-label"></label>
+                    </div>
+                <div class="col-12 col-lg-3">
+                    <input type="time" class="form-control" id="time">
+                    <label for="time" class="form-label"></label>
+                </div>
+                <div class="col-1 col-lg-2">
+                    <button type="submit" class="btn btn-primary" value="submit" id="submit" onclick="myFunction()">Submit</button>
+                </div>
+            </form>
+        </div>
+        <!-- form div finish -->
+
+    </header>
+    <!-- header finish -->
+
+    <!-- Main container div -->
+    <main class="container py-5" >
+            <!-- Section-1-->
+        <div class="row p-4 border-bottom">
+            <div class="col-6 align-items-center">
+                <div id="exampleControls1" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="img/vehicule1.png" class="d-block w-100 img-fluid" alt="vehicule1">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="img/vehicule2.png" class="d-block w-100 img-fluid" alt="vehicule2">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="img/vehicule3.png" class="d-block w-100 img-fluid" alt="vehicule3">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="img/vehicule4.png" class="d-block w-100 img-fluid" alt="vehicule4">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+            </div>
+            <div class="col-6 align-items-center">
+                <h2 class="p-1">Peugeot 208</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <p>999$ - Agance de Paris</p>
+                <button type="button" class="btn btn-primary p-1 mt-1">Secondary</button>
+            </div>
+        </div>
+        <!-- Section-1 finish -->
+
+        
+        <!-- Section-2-->
+        <div class="row p-4 border-bottom">
+            <div class="col-6 align-items-center">
+                <div id="exampleControls2" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="img/vehicule4.png" class="d-block w-100 img-fluid" alt="vehicule1">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="img/vehicule2.png" class="d-block w-100 img-fluid" alt="vehicule2">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="img/vehicule3.png" class="d-block w-100 img-fluid" alt="vehicule3">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="img/vehicule1.png" class="d-block w-100 img-fluid" alt="vehicule4">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+            </div>
+            <div class="col-6 align-items-center">
+                <h2 class="p-1">Ford Focus</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <p>999$ - Agance de Paris</p>
+                <button type="button" class="btn btn-primary p-1 mt-1">Secondary</button>
+            </div>
+        </div>
+        <!-- Section-2 Finish-->
+
+        <!-- Section-3-->
+        <div class="row p-4 border-bottom">
+            <div class="col-6 align-items-center">
+                <div id="exampleControls3" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="img/vehicule3.png" class="d-block w-100 img-fluid" alt="vehicule1">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="img/vehicule2.png" class="d-block w-100 img-fluid" alt="vehicule2">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="img/vehicule1.png" class="d-block w-100 img-fluid" alt="vehicule3">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="img/vehicule4.png" class="d-block w-100 img-fluid" alt="vehicule4">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+            </div>
+            <div class="col-6 align-items-center">
+                <h2 class="p-1">Audi A1</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <p>999$ - Agance de Paris</p>
+                <button type="button" class="btn btn-primary p-1 mt-1">Secondary</button>
+            </div>
+        </div>
+        <!-- Section-3 Finish-->
+
+        <!-- Section-4 -->
+        <div class="row p-4 border-bottom">
+            <div class="col-6 align-items-center">
+                <div id="exampleControls4" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="img/vehicule2.png" class="d-block w-100 img-fluid" alt="vehicule1">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="img/vehicule1.png" class="d-block w-100 img-fluid" alt="vehicule2">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="img/vehicule3.png" class="d-block w-100 img-fluid" alt="vehicule3">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="img/vehicule4.png" class="d-block w-100 img-fluid" alt="vehicule4">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+            </div>
+            <div class="col-6 align-items-center">
+                <h2 class="p-1">Opel Mokka</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <p>999$ - Agance de Paris</p>
+                <button type="button" class="btn btn-primary p-1 mt-1">Secondary</button>
+            </div>
+        </div>
+        <!-- Section-4 Finish-->
+    </main>
+    <!-- Main container div finish -->
+
+    <!-- Footer -->
+    <footer class="container-fluid mx-auto">>
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-6 text-center text-md-end text-lg-end pe-4">
+                <img src="img/agence.jpg" alt="agence" class="img-fluid w-50">
+            </div>
+            <div class="col-12 col-md-6 col-lg-6 p-4">
+              <div class="text-center text-md-start text-lg-start">
+                <h4>Notre Agance de Paris</h4>
+                <address class="fs-6">
+                    300 Boulevard de Maganta, 75010 Paris <br>
+                    Ouver : 7j/7 de 09h à 13h et de 14h à 20h <br>
+                    01 49 78 21 33 <br>
+                    locationvoiture@gmail.com
+                </address>
+              </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer finish -->
+
+    <!-- Boostrap JS link -->
+    <script src="bootstrap-5.1.1-dist/js/bootstrap.js"></script>
+
+    <!-- my JS link -->
+    <script src="js/locationV.js"></script>
+    
+</body>
+</html>
