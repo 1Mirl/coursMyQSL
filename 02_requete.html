@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+  <!-- Bootstrap icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+  <title>Cours MySQL -02_Requêtte</title>
+</head>
+<body class="bg-info">
+    <header class="container">
+        <div class="row">
+            <div class="col-8">
+                <h1 class="display-4 text-center">Cours SQL - Requête - # 2</h1>
+                <p class="lead">INSERT, UPDATE et DELETE</p>
+            </div>
+        </div>
+    </header>
+
+    <section class="container mb-4 bg-light">
+        <div class="row">
+            <h2>1-INSERT INTO, requête d'insertion</h2>
+            <div class="col-md-10">
+                <ul>
+                    <li>1ère méthode :<code>INSERT INTO employes (prenom, nom, sexe, service, date_embauche, salaire) VALUES ('Alexis', 'Richard', 'm', 'informatique', '2011-12-28', 1800);</code></li>
+                    <li>Afficher cet enregistrement on le cherche par le nom de famille: <code>SELECT * FROM employes WHERE nom='Richard';</code> ou bien on cherche le dernier enregistrement <code>SELECT * FROM employes ORDER BY id_employes DESC LIMIT 1;</code></li>
+                    <hr>
+                    <li>2ème méthode : <code>INSERT INTO employes VALUES (NULL, 'Jeanne','Richy','f','informatique','2021-01-28', 1800);</code></li>
+                    <li class="alert alert-danger">NULL nous permet de laisser le champ id-employes se remplir seul car il est auto-incrémenté</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <h2>UPDATE, requête de mise à jour</h2>
+            <div class="col-md-10">
+                <ul>
+                    <li>Changer ou augmenter le salaire de l'employée, Jeanne, dont l'id est 992<code>UPDATE employes SET salaire = 1900 WHERE id_employes = 992;</code></li>
+                    <li class="alert alert-danger">On utilise toujours des ID pour mettre à jour les informations de la BDD car c'est le seul élément unique</li>
+                    <li>Pour faire plusieurs mise à jour en même temps il faudra respecter l'ordre des colonnes et les séparer par une virgule: <code> UPDATE employes SET service ='commercial', salaire = 2000 WHERE id_employes = 992;</code></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <h2>DELETE, requête de suppression</h2>
+            <div class="col-md-10">
+                <ul>
+                    <li>Supprimer un enregistrement avec DELETE :<code>DELETE FROM employes WHERE id_employes = 388;</code></li>
+                    <li>Supprimer plusieurs enregistrements, ici on supprime tous les employés du service informatique<code> DELETE FROM employes WHERE service ='informatique';</code></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <h2>4- Exercice</h2>
+            <div class="col-md-10">
+                <ul>
+                    <li>Afficher la profession de l'employé 547:<code></code></li>
+                    <li>Afficher la date d'embauche d'Amandine :<code></code></li>
+                    <li>Afficher le nombre de commerciaux :<code></code></li>
+                    <li>Afficher le coût des commerciaux sur  une année :<code></code></li>
+                    <li>Afficher le salaire moyen par service :<code></code></li>
+                    <li>Afficher le nombre de recrutement sur l'année 2010:<code></code></li>
+                    <li>Augmenter le salaire pour chaque employé de 100€ :<code></code></li>
+                    <li>Afficher le nombre de service:<code></code></li>
+                    <li>Afficher les informations de l'employé du service commercial gagnant le salaire le plus élevé :<code></code></li>
+                    <li>Afficher l'employé ayant été embauché en dernier<code></code></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Optional JavaScript -->
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+    crossorigin="anonymous"></script>
+</body>
+</html>

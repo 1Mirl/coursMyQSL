@@ -189,15 +189,117 @@
         </div>
 
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-12">
             <h3>Différent de !=</h3>
             <ul>
               <li>Différent de != : Afficher tous les employés, sauf ceux du service informatique : <code>SELECT prenom, nom, service FROM employes WHERE service != 'informatique';</code></li>
               <li>Supérieur à > : Afficher les employés qui gagnent plus de 3 000 euros: <code>SELECT prenom, nom, salaire FROM employes WHERE salaire > 3000;</code></li>
             </ul>
           </div>
-          <div class="col-md-4"></div>
-          <div class="col-md-4"></div>
+        </div>
+
+        <div class="row">
+          <h2>6- Classement avec ORDER BY</h2>
+          <div class="col-md-10">
+            <ul>
+              <li>Grâce à ORDER BY on va classer les données par ordre alphabétique</li>
+              <li>On range les noms par ordre alphabétique grâce au code suivant: <code>SELECT prenom, nom FROM employes ORDER BY nom DESC;</code></li>
+              <li class="alert alert-danger">On précise <em>ASC</em> ou <em>DESC</em>. Si ce n'est pas précisé ce sera trié automatiquement de plus petit au plus grand</li>
+              <li>Fonctionne pour les chaînes de caractères comme pour les membres: <code>SELECT sexe, salaire FROM employes ORDER BY salaire ASC;</code></li>
+              <li>ORDER BY permet aussi de trier sur plusieurs colonnes: <code>SELECT nom, prenom, service, salaire FROM employes ORDER BY service ASC, salaire ASC;</code></li>
+            </ul>
+          </div>
+          <!-- fin col -->
+        </div>
+
+        <div class="row">
+          <h2>7- Limiter les résultat avec LIMIT</h2>
+          <div class="col-10">
+            <ul>
+              <li>Afficher les employés en les classant par salaire (du + grand au + petit) et en limitant le résultat à 3 : <code>SELECT nom, prenom, service, salaire FROM employes ORDER BY salaire DESC LIMIT 0,3;</code></li>
+              <li class="alert alert-danger">Le premier chiffre précise l'enregistrement de départ: 0 définit le premier enregistrement informatique. Le second chiffre nous indique combien de résultats nous attendons.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+          <h2>8- Faire des calculs dans la requête</h2>
+          <div class="col-md-12">
+            <ul>
+              <li>Affichez la liste des employés avec leur salaire annuel: <code>SELECT nom, prenom, salaire, salaire*12 FROM employes;</code></li>
+            </ul>
+          </div>
+          <!-- fin col -->
+          <div class="col-md-4">
+            <h3>a/Utiliser un alias : AS</h3>
+            <ul>
+              <li>Avec le code précedent on a une colonne provisoire qui n'a pas de nom défini</li>
+              <li>Grâce au mot clef AS, on créé une colonne ponctuelle <code>SELECT nom, prenom, salaire, salaire*12 AS salaire_annuel FROM employes;</code></li>
+              <li>Le mot mot-clef AS permet de définir un alias</li>
+              <li>Ici on fait une division pour avoir le salaire horaire et on passe le résultat dans un alias :<code>SELECT nom, prenom, salaire, salaire/150 AS salaire_horaire FROM employes;</code></li>
+            </ul>
+          </div>
+          <!-- fin col -->
+          <div class="col-md-4">
+            <h3>b/Calculer une somme SUM() et une moyenne AVG()</h3>
+            <ul>
+              <li>On calcule la somme totale des salaires à l'année des employés :<code>SELECT SUM(salaire*12) FROM employes;</code></li>
+              <li>La même requête avec la création d'un alias sans le mot-clef AS (pour info) : <code>SELECT AVG(salaire) 'salaire_moyen' FROM employes;</code></li>
+            </ul>
+          </div>
+          <!-- fin col -->
+          <div class="col-md-4">
+            <h3>c/Arrondir avec ROUND()</h3>
+            <ul>
+              <li>Avec ROUND on peut arrondir le résultat d'un calcul<code>SELECT ROUND(AVG(salaire)) AS salaire_moyen FROM employes;</code></li>
+              <li>Ici on arrondi<code>SELECT nom, prenom, salaire, ROUND(salaire/150) AS salaire_horaire FROM employes;</code></li>
+              <li>On peut cumuler deux notions avec ROUND et AVG; attention à la syntaxe et aux parenthèses.</li>
+            </ul>
+          </div>
+          <!-- fin col -->
+
+          <div class="row">
+            <div class="col-md-6">
+              <h3>d/Compter avec COUNT()</h3>
+              <ul>
+                <li>On peut compter le nombre d'employés du sexe féminin : <code>SELECT COUNT(*) FROM employes WHERE SEXE ='f';</code></li>
+                <li>On peut compter le nombre d'employés du sexe féminin : <code>SELECT COUNT(*) FROM employes WHERE SEXE ='m';</code></li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <h3>e/Isoler une valeur MIN() ou MAX()</h3>
+              <ul>
+                <li>Avec MIN() on peut trouver le salaire le plus bas : <code>SELECT MIN(salaire) FROM employes;</code> </li>
+                <li>Si on veut le nom, prenom et le salaire de la personne qui touche le salaire le plus bas; <code>SELECT nom, prenom, salaire FROM employes WHERE salaire=(SELECT MIN(salaire) FROM employes);</code></li>
+                <li class="alert alert-danger">Le système va exécuter en premier la reuête entre parenthèse pour connaître le résultat et l'exécuter comme source pour la seconde requête</li>
+              </ul>
+          </div>
+        </div>
+
+        <div class="row">
+          <h2>9- Les conditions multiples</h2>
+          <div class="col-md-10">
+            <h3>AND</h3>
+            <ul>
+              <li>Nous cherchons les employés du service commercial qui gagne plus de 2000 Euros <code>SELECT nom, prenom, service, salaire FROM employes WHERE service ='production' AND salaire ='1900' OR salaire = '2300';</code></li>
+            </ul>
+          </div>
+          <!-- fin col -->
+          <div class="col-md-10">
+            <ul>
+              <li>Lorsqu'il y a AND et OR au sein de la même requête, le système lit la condition de la droite vers la gauche : <code> SELECT nom, prenom, service, salaire FROM employes WHERE service ='production' AND salaire ='1900' OR salaire = '2300';</code></li>
+              <li>Pour garantir l'ordre naturel de lecture (de la gauche vers la droite), on utilisera les parenthèses; <code> SELECT nom, prenom, service, salaire FROM employes WHERE service ='production' AND (salaire ='1900' OR salaire = '2300');</code></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="row">
+          <h2>10- Les regroupement avec GROUP BY</h2>
+          <div class="col-md-10">
+            <li>Ici on veut connaître le nombre d'employés par service : <code> SELECT service, COUNT(*) AS nombre_employes FROM employes GROUP BY service ORDER BY nombre_employes;</code></li>
+            <li class="alert alert-danger">La virgule ici signifie "et" donc on cherche le service et on compte le nombre d'employés par service</li>
+          </div>
+          <div class="col-md-10"></div>
         </div>
 
         <h3 id="types" class="text-primary text-decoration-underline text-center">Illustration :</h3>

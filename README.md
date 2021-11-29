@@ -25,5 +25,9 @@ IX- Interroger la BDD
 10- Les regroupements
 
 ### 02_requetes.html
+1- INSERT INTO, insertion
+2- UPDATE, mise à jour
+3- DELETE, effacer
+4- Exo
 ### 03_requetes_imbriquees.html
 ### 04_jointures.html
