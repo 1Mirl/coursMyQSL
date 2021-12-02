@@ -64,16 +64,18 @@
             <h2>4- Exercice</h2>
             <div class="col-md-10">
                 <ul>
-                    <li>Afficher la profession de l'employé 547:<code> SELECT * FROM employes ORDER BY id_employes DESC LIMIT 12;</code></li>
-                    <li>Afficher la date d'embauche d'Amandine :<code>SELECT * FROM employes WHERE date_embauche LIKE '%2010%';</code></li>
-                    <li>Afficher le nombre de commerciaux :<code>SELECT COUNT(*) FROM employes WHERE service ='commercial';</code></li>
-                    <li>Afficher le coût des commerciaux sur  une année :<code>SELECT SUM(salaire) 'salaire_commercial' FROM employes;</code></li>
-                    <li>Afficher le salaire moyen par service :<code>SELECT service, AVG(salaire) 'salaire_moyen' FROM employes;</code></li>
-                    <li>Afficher le nombre de recrutement sur l'année 2010:<code>SELECT COUNT(*) FROM employes WHERE date_embauche ='2010';</code></li>
-                    <li>Augmenter le salaire pour chaque employé de 100€ :<code> UPDATE employes SET salaire = 100 WHERE sexe ='f'; OU  UPDATE employes SET salaire = 100 WHERE sexe ='m';</code></li>
-                    <li>Afficher le nombre de service:<code>SELECT service, COUNT(*) nombre_service FROM employes;</code></li>
-                    <li>Afficher les informations de l'employé du service commercial gagnant le salaire le plus élevé :<code>SELECT nom, prenom, salaire, service='commercial' FROM employes WHERE salaire=(SELECT MAX(salaire) FROM employes);</code></li>
-                    <li>Afficher l'employé ayant été embauché en dernier<code>SELECT * FROM employes WHERE date_embauche BETWEEN '2021' AND CURDATE();</code></li>
+                    <li>Afficher la profession de l'employé 547:<code> SELECT * FROM employes WHERE id_employes = 547;</code></li>
+                    <li>Afficher la date d'embauche d'Amandine :<code>SELECT nom, prenom, date_embauche FROM employes WHERE prenom ='Jeanne';</code></li>
+                    <li>Afficher le nombre de commerciaux :<code>SELECT COUNT(*) AS 'nb-commerciaux'FROM employes WHERE service ='commercial';</code></li>
+                    <li>Afficher le coût des commerciaux sur  une année :<code>SELECT SUM(salaire*12) FROM employes WHERE service='commercial'; OU ENCORE SELECT SUM(salaire*12) AS 'salaire_annuel_commerciaux' FROM employes WHERE service ='commercial';</code></li><br>
+                    <li>Afficher le salaire moyen par service :<code>SELECT AVG(salaire) AS'salaire_moyen_par_service', service FROM employes GROUP BY service; OU ENCORE: SELECT AVG(salaire), service FROM employes GROUP BY service ORDER BY salaire_moyen_par_service ASC;</code></li><br>
+                    <li>Afficher le nombre de recrutement sur l'année 2010:<code>SELECT COUNT(*) AS 'nbr_recrutement_en_2010'FROM employes WHERE date_embauche LIKE '2010%';</code></li>
+                    <li>Augmenter le salaire pour chaque employé de 100€ :<code> UPDATE employes SET salaire = salaire+100;</code></li>
+                    <li>Pour augmenter le salaire d'un employé :<code>UPDATE employes SET salaire = salaire+50 WHERE id_employes = 415;</code></li>
+                    <li>Afficher le nombre de service:<code>SELECT COUNT(DISTINCT service) AS 'nombre_service' FROM employes;</code></li>
+                    <li>Afficher les informations de l'employé du service commercial gagnant le salaire le plus élevé :<code> SELECT * FROM employes WHERE service='commercial' ORDER BY salaire DESC LIMIT 1; OU ENCORE: SELECT MAX(salaire) FROM employes WHERE service ='commercial';</code></li>
+
+                    <li>Afficher l'employé ayant été embauché en dernier: <code>SELECT * FROM employes WHERE date_embauche BETWEEN '2021' AND CURDATE();</code></li>
                 </ul>
             </div>
         </div>
