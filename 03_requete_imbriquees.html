@@ -38,6 +38,89 @@
                     ) ENGINE=InnoDB ;</code></p>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <figure>
+                    <img style="width: 400px;" src="img/livre.png" alt="abonne">
+                    <figcaption>La table livre</figcaption>
+                </figure>
+            </div>
+            <div class="col-md-4">
+                <figure>
+                    <img style="width: 400px;" src="img/table_livre.jpg" alt="table livre">
+                    <figcaption>La table livre avec les contenus</figcaption>
+                </figure>
+            </div>
+            <div class="col-md-4">
+                <p>Création de la table livre en SQL: <code>CREATE TABLE livre (
+                    id_abonne INT(3) NOT NULL AUTO_INCREMENT,
+                    auteur VARCHAR(20) NOT NULL, titre VARCHAR(20) NOT NULL,
+                    PRIMARY KEY (id_abonne)
+                    ) ENGINE=InnoDB ;</code></p>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-4">
+                <figure>
+                    <img style="width: 400px;" src="img/emprunt.png" alt="table emprunt">
+                    <figcaption>La table emprumt</figcaption>
+                </figure>
+            </div>
+            <div class="col-md-4">
+                <figure>
+                    <img style="width: 400px;" src="img/table_emprunt.jpg" alt="table emprunt">
+                    <figcaption>La table emprunt avec les contenus</figcaption>
+                </figure>
+            </div>
+            <div class="col-md-4">
+                <p>Création de la table livre en SQL: <code>CREATE TABLE livre (
+                    id_emprunt INT(3) NOT NULL AUTO_INCREMENT,id_livre INT(3) NOT NULL AUTO_INCREMENT,id_abonne INT(3) NOT NULL AUTO_INCREMENT,
+                    date_sortie DATE() NOT NULL, date_rendu DATE() NULL,
+                    PRIMARY KEY (id_abonne)
+                    ) ENGINE=InnoDB ;</code></p>
+            </div>
+        </div>
+        <div class="row border border-danger">
+            <div class="col-md-6">
+                <figure>
+                    <img src="img/designer.png" alt="concepteur">
+                    <figcaption>Le concepteur</figcaption>
+                </figure>
+            </div>
+            <div class="col-md-6">
+                <figure>
+                    <img style="width: 500px;" src="Img/cours_le_concepteur.PNG" alt="concepteur">
+                    <figcaption>Le concepteur 2</figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <div class="row">
+            <h2>2-SELECT sur plusieurs tables</h2>
+            <div class="col-md-6">
+                <ul>
+                    <li><code>SELECT * FROM abonne;</code></li>
+                    <li><code>SELECT * FROM livre;</code></li>
+                    <li><code>SELECT * FROM emprunt;</code></li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <ul>
+                    <li class="alert alert-success">On cherche les livres qui n'ont pas été rendu: <code>SELECT * FROM `emprunt` WHERE date_rendu IS NULL; </code> : attention cas particulier la valeur NULL se teste avec le mot clef IS !</li>
+                    <li>Quels sont les titres des livres qui n'ont pas été rendus? : <code>SELECT * FROM livre WHERE id_livre IN (SELECT id_livre FROM emprunt WHERE date_rendu IS NULL);</code> nous cherchons des informations dans les tables "livre" et "emprunt", la requête entre parenthèses s'exécute en premier, et nous donne l'id des livres de la table "emprunt", puis nous demandons les titres des livres correspondant aux id des livres de la première requête</li>
+                    <li class="alert alert-success">attention ! Pour qu'une requête imbriquée sur 3 table soit possible il faut absolument qu'une formation soit commune aux 2 tables: ici l'id_livre !! Le champ id_livre nous sert à "joindre" et faire correspondre les informations.</li>
+                    <li> : <code></code></li>
+                    <li> : <code></code></li>
+                    <li> : <code></code></li>
+                    <li> : <code></code></li>
+                    <li> : <code></code></li>
+                    <li> : <code></code></li>
+                    <li> : <code></code></li>
+                </ul>
+            </div>
+        </div>
     </section>
 </body>
 </html>
