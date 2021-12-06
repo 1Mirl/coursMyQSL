@@ -42,3 +42,6 @@ IX- Interroger la BDD
 1- Définition
     a/Récap
 2- Exemples
+    a/Jointures
+    b/Jointures externes
+    c/UNION
