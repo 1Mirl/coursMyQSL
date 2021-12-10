@@ -154,6 +154,48 @@
             <img style="width: 1000px;" src="img/clef etranger 2.PNG" alt="clef etranger 2">
             <figcaption>clef etrangére des tables</figcaption>
         </figure>
+
+        <div class="row container">
+            <h3 class="alert alert success">Exo</h3>
+            <div class="col-md-6">
+                <ol>
+                    <li>Affichez le nom des agences : <code>SELECT * FROM `agence` nom; </code></li>
+                    <li>Affichez le numéro de l'agence « Orpi » : <code>SELECT idAgence FROM agence WHERE nom='Orpi'; </code></li>
+                    <li>Affichez le premier enregistrement de la table logement : <code>SELECT * FROM logement ORDER BY idLogement ASC LIMIT 1; </code></li>
+                    <li>Affichez le nombre de logements (Alias : Nombre_de_logements) :<code>SELECT COUNT(*) AS 'nombre_de_logements'FROM logement; </code></li>
+                    <li>Affichez les logements à vendre à moins de 150 000 € dans l'ordre croissant des prix :<code></code></li>
+                    <li>Afficher le nombre de logements à la location (alias : 'nombre_logement_en_location') :<code>SELECT COUNT(*) AS 'nb_logement_en_location'FROM logement WHERE categorie='location';</code></li>
+                    <li>Afficher les villes différentes recherchées par les personnes demandeuse d'un logement :<code>SELECT ville FROM logement; </code></li>
+                    <li>Affichez le nombre de biens à vendre par ville : (Alias  nbr_logement_envente_ville) :<code>SELECT COUNT(*) AS 'nb-logement_envente_ville'FROM logement WHERE categorie='vente';</code> correction1 <code>SELECT ville, COUNT(ville) as 'nbr_logement_envente_ville' FROM demande WHERE categorie='vente' GROUP BY ville</code> correction2 <code> SELECT COUNT(idLogement)AS 'nbr logement', ville 
+                        FROM logement 
+                        WHERE ville IN (SELECT DISTINCT(ville) FROM logement)
+                        AND categorie='vente'
+                        GROUP BY ville</code></li>
+
+                    <li>Quel est le prix vendeur(hors comission) du logement le moins cher à vendre ? : <code>SELECT * FROM logement WHERE categorie='vente' ORDER BY prix ASC LIMIT 1; </code> OU <code>SELECT MIN(prix) AS 'prix min' FROM logement WHERE categorie = 'vente'</code></li>
+                    <li>Dans quelle ville se trouvent les maisons à vendre ? :<code>SELECT ville FROM logement WHERE categorie='vente'; </code></li>
+                    <li>L'agence Orpi souhaite diminuer les frais qu'elle applique sur le logement ayant l'id « 5246 ». Passer les frais de ce logement de 800 à 730€ : <code>UPDATE logement SET prix = 730 WHERE idLogement = 5246; </code></li>
+                    <li>Quels sont les logements gérés par l'agence « laforet »: <code>SELECT idLogement FROM logement_agence WHERE idAgence='608870'; </code></li>
+
+                    <li>Affichez le nombre de propriétaires dans la ville de Paris (Alias : Nombre propriétaire parisien) : <code>SELECT COUNT(*) AS 'nbr_propriétaire_parisien' FROM demande WHERE ville='paris'; </code> OU <code>SELECT COUNT(DISTINCT(logement_personne.idPersonne)) <br>
+                        AS 'nombre de proprietaires parisiens' <br>
+                        FROM logement_personne , logement <br>
+                        WHERE logement_personne.idLogement = logement.idLogement <br>
+                        AND logement.ville='paris';</code></li>
+                    <li>Afficher les infos des trois premières personnes souhaitant acheter un logement : <code>SELECT * FROM personne, demande WHERE personne.idPersonne = demande.idPersonne AND demande.categorie = 'vente' ORDER BY demande.idDemande LIMIT 0,3;</code></li>
+                </ol>
+            </div>
+            <div class="col-md-6">
+                <h3>La suite ( requêtes de jointure) </h3>
+                <ol>
+                    <li>Affichez le prénom du vendeur pour le logement ayant la référence « 5770 » :<code></code></li>
+                    <li>Affichez les prénoms des personnes souhaitant avoir un logement à Lyon :<code></code></li>
+                    <li>Affichez les prénoms des personnes souhaitant accéder à un logement en location à Paris :<code></code></li>
+                    <li>Affichez les prénoms des personnes souhaitant acheter un logement de la plus grande à la plus petite superficie : <code></code></li>
+                    <li>Quel sont les prix finaux proposés par les agences pour la maison à la vente ayant la référence « 5091 » ? (Alias :  frais d'agence inclus) : <code></code></li>
+                </ol>
+            </div>
+        </div>
     </section>
 
      <!-- Optional JavaScript -->
