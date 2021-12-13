@@ -63,15 +63,18 @@
                 <ul>
                     <li>création de la table "demande" : <br>
                     <code>CREATE TABLE IF NOT EXISTS demande ( <br>
-                    idDemande int(5) NOT NULL AUTO_INCREMENT,  <br>
-                    idPersone int(3) NOT NULL AUTO_INCREMENT, <br>
-                    type varchar(100) NOT NULL, <br>
-                    ville varchar(100) NOT NULL, <br>
-                    budget int(7) NOT NULL, <br>
-                    superficie int(5) NOT NULL, <br>
-                    categorie varchar(100) NOT NULL, <br>
-                    PRIMARY KEY (idDemande) <br>
-                    ) ENGINE=InnoDB DEFAULT CHARSET=latin1;</code></li>
+                        idDemande int(5) NOT NULL AUTO_INCREMENT, <br>
+                        idPersonne int(3) NOT NULL, <br>
+                        genre varchar(100) NOT NULL, <br>
+                        ville varchar(100) NOT NULL, <br>
+                        budget int(7) NOT NULL, <br>
+                        superficie int(5) NOT NULL, <br>
+                        categorie varchar(100) NOT NULL, <br>
+                        PRIMARY KEY (idDemande), <br>
+                        KEY idPersonne (idPersonne) <br>
+                        ) ENGINE=InnoDB DEFAULT CHARSET=latin1;</code></li>
+                    <li class="alert alert-success">Clef etrangére : <code>ALTER TABLE demande <br>
+                        ADD CONSTRAINT demande_ibfk_1 FOREIGN KEY (idPersonne) REFERENCES personne (idPersonne)</code></li>
                 </ul>
             </div>
         </div>
@@ -89,11 +92,11 @@
                 <ul>
                     <li>création de la table "agence" : <br>
                         <code>CREATE TABLE IF NOT EXISTS agence ( <br>
-                         idAgence int(6) NOT NULL AUTO_INCREMENT,  <br> 
-                         nom varchar(100) NOT NULL, <br>
-                         adresse varchar(100) NOT NULL, <br>
-                         PRIMARY KEY (idAgence) <br>
-                        ) ENGINE=InnoDB DEFAULT CHARSET=latin1;</code></li>
+                            idAgence int(6) NOT NULL AUTO_INCREMENT, <br>
+                            nom varchar(100) NOT NULL, <br>
+                            adresse varchar(100) NOT NULL, <br>
+                            PRIMARY KEY (idAgence) <br>
+                            ) ENGINE=InnoDB DEFAULT CHARSET=latin1;</code></li>
                 </ul>
             </div>
         </div>
@@ -109,7 +112,19 @@
             <div class="col-md-6">
                 <h3>Commande SQL</h3>
                 <ul>
-                    <li>création de la table "logement_agence" : </li>
+                    <li>création de la table "logement_agence" : 
+                    <code>CREATE TABLE IF NOT EXISTS logement_agence ( <br>
+                        idLogementAgence int(5) NOT NULL AUTO_INCREMENT, <br>
+                        idAgence int(6) NOT NULL, <br>
+                        idLogement int(4) NOT NULL, <br>
+                        frais int(7) NOT NULL, <br>
+                        PRIMARY KEY (idLogementAgence), <br>
+                        KEY idAgence (idAgence), <br>
+                        KEY idLogement (idLogement) <br>
+                        ) ENGINE=InnoDB DEFAULT CHARSET=latin1;</code> </li>
+                    <li class="alert alert-success">Cléf etrangére : <code>ALTER TABLE logement_agence <br>
+                        ADD CONSTRAINT logement_agence_ibfk_2 FOREIGN KEY (idLogement) REFERENCES logement (idLogement), <br>
+                        ADD CONSTRAINT logement_agence_ibfk_1 FOREIGN KEY (idAgence) REFERENCES agence (idAgence)</code></li>
                 </ul>
             </div> 
         </div>
@@ -125,7 +140,18 @@
             <div class="col-md-6">
                 <h3>Commande SQL</h3>
                 <ul>
-                    <li>création de la table "logement_personne" : </li>
+                    <li>création de la table "logement_personne" : 
+                    <code>CREATE TABLE IF NOT EXISTS logement_personne ( <br>
+                        idLogementPersonne int(5) NOT NULL AUTO_INCREMENT, <br>
+                        idPersonne int(3) NOT NULL,<br>
+                        idLogement int(4) NOT NULL,
+                        PRIMARY KEY (idLogementPersonne),<br>
+                        UNIQUE KEY idLogement (idLogement),<br>
+                        KEY idPersonne (idPersonne)
+                        ) ENGINE=InnoDB DEFAULT CHARSET=latin1;</code></li>
+                    <li class="alert alert-success">Cléf etrangére : <code>ALTER TABLE logement_personne <br>
+                        ADD CONSTRAINT logement_personne_ibfk_2 FOREIGN KEY (idPersonne) REFERENCES personne (idPersonne), <br>
+                        ADD CONSTRAINT logement_personne_ibfk_1 FOREIGN KEY (idLogement) REFERENCES logement (idLogement);</code></li>
                 </ul>
             </div> 
         </div>
@@ -142,16 +168,16 @@
                 <h3>Commande SQL</h3>
                 <ul>
                     <li>création de la table "personne" : <br>
-                        <code>CREATE TABLE IF NOT EXISTS agence ( <br>
-                         idAgence int(6) NOT NULL AUTO_INCREMENT,  <br> 
-                         prenom varchar(100) NOT NULL, <br>
-                         PRIMARY KEY (idPersone) <br>
-                        ) ENGINE=InnoDB DEFAULT CHARSET=latin1;</code></li>
+                        <code>CREATE TABLE IF NOT EXISTS personne ( <br>
+                            idPersonne int(3) NOT NULL AUTO_INCREMENT, <br>
+                            prenom varchar(100) NOT NULL, <br>
+                            PRIMARY KEY (idPersonne) <br>
+                            ) ENGINE=InnoDB DEFAULT CHARSET=latin1;</code></li>
                 </ul>
             </div>
         </div>
-        <figure>
-            <img style="width: 1000px;" src="img/clef etranger 2.PNG" alt="clef etranger 2">
+        <figure class="container ">
+            <img style="width: 1000px;" src="img/immobillier_01.PNG" alt="clef etranger 2">
             <figcaption>clef etrangére des tables</figcaption>
         </figure>
     </section>
