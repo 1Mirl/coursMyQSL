@@ -3,15 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
-<<<<<<< HEAD
--- Généré le : mar. 07 déc. 2021 à 10:49
--- Version du serveur : 10.4.21-MariaDB
--- Version de PHP : 8.0.12
-=======
--- Généré le : mar. 07 déc. 2021 à 10:43
+-- Généré le : mer. 08 déc. 2021 à 14:27
 -- Version du serveur : 10.4.22-MariaDB
 -- Version de PHP : 8.0.13
->>>>>>> 8f2342517f19e136307f76c7839cf80746c9ed48
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,10 +18,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `immobilier_01`
+-- Base de données : `immobilier`
 --
-CREATE DATABASE IF NOT EXISTS `immobilier_01` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `immobilier_01`;
+CREATE DATABASE IF NOT EXISTS `immobilier` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `immobilier`;
 
 -- --------------------------------------------------------
 
